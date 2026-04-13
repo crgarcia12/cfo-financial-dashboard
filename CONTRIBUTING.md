@@ -1,6 +1,6 @@
-# Contributing to spec2cloud
+# Contributing to CFO Financial Dashboard
 
-Thank you for your interest in contributing! This document provides guidelines for contributing to the spec2cloud shell template.
+Thank you for your interest in contributing! This document provides guidelines for contributing to this project.
 
 ## Getting Started
 
@@ -65,14 +65,6 @@ npm run build:all         # Production build (API + Web)
 - **Naming** — camelCase for variables/functions, PascalCase for types/interfaces, kebab-case for files
 - **Testing** — all code must be covered by tests
 - **Comments** — only when code intent is non-obvious
-
-## Skills
-
-Agent skills live in `.github/skills/` and follow the [agentskills.io](https://agentskills.io) specification. If you're contributing a new skill:
-
-1. Use the `skill-creator` skill as a guide
-2. Include a `SKILL.md` with proper YAML frontmatter
-3. Add tests or verification steps
 
 ## License
 

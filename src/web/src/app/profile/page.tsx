@@ -47,15 +47,10 @@ export default function ProfilePage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  async function handleLogout() {
-    await fetch('/api/auth/logout', { method: 'POST' });
-    router.push('/login');
-  }
-
   if (loading) {
     return (
       <main className="flex min-h-[80vh] items-center justify-center">
-        <p className="text-gray-600">Loading profile…</p>
+        <p className="text-slate-300">Loading profile...</p>
       </main>
     );
   }
@@ -78,15 +73,15 @@ export default function ProfilePage() {
 
   return (
     <main className="flex min-h-[80vh] items-center justify-center px-4">
-      <div className="w-full max-w-md space-y-6 text-center">
-        <h1 className="text-2xl font-bold text-gray-900">{user.username}</h1>
-        <span data-testid="role-badge" className="inline-block rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
+      <div className="w-full max-w-md space-y-6 rounded-2xl border border-slate-800 bg-slate-900/85 p-8 text-center shadow-xl shadow-black/10">
+        <h1 className="text-2xl font-bold text-slate-50">{user.username}</h1>
+        <span data-testid="role-badge" className="inline-block rounded-full border border-blue-500/20 bg-blue-500/15 px-3 py-1 text-sm font-medium text-blue-200">
           {user.role}
         </span>
-        <p className="text-gray-600">
+        <p className="text-slate-300">
           Member since {formatDate(user.createdAt)}
         </p>
-        <p className="text-sm text-gray-400">Use the Logout button in the navigation bar to sign out.</p>
+        <p className="text-sm text-slate-500">Use the Logout button in the navigation bar to sign out.</p>
       </div>
     </main>
   );

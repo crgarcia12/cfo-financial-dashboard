@@ -24,8 +24,8 @@ export default function ChatMessage({ role, content, isError }: ChatMessageProps
           isUser
             ? 'bg-blue-600 text-white'
             : isError
-              ? 'error bg-red-50 text-red-800 border border-red-200'
-              : 'bg-gray-100 text-gray-900'
+              ? 'error border border-red-500/20 bg-red-500/10 text-red-200'
+              : 'bg-slate-800 text-slate-100'
         }`}
       >
         {isUser ? (
@@ -38,7 +38,7 @@ export default function ChatMessage({ role, content, isError }: ChatMessageProps
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 underline hover:text-blue-800"
+                  className="text-blue-400 underline hover:text-blue-300"
                   {...props}
                 >
                   {children}

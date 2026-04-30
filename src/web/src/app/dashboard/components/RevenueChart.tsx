@@ -28,8 +28,8 @@ interface CustomTooltipProps {
 function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="rounded-xl border border-gray-100 bg-white shadow-lg px-4 py-3 text-xs">
-      <p className="font-semibold text-gray-700 mb-1.5">{label}</p>
+    <div className="rounded-xl border border-slate-700 bg-slate-950/95 px-4 py-3 text-xs shadow-xl shadow-black/20">
+      <p className="mb-1.5 font-semibold text-slate-100">{label}</p>
       {payload.map((p) => (
         <p key={p.name} style={{ color: p.color }} className="flex justify-between gap-4">
           <span>{p.name}</span>
@@ -46,11 +46,11 @@ export default function RevenueChart() {
   return (
     <ResponsiveContainer width="100%" height={280}>
       <ComposedChart data={data} margin={{ top: 4, right: 8, left: 0, bottom: 0 }}>
-        <CartesianGrid strokeDasharray="3 3" stroke="#F3F4F6" />
-        <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#9CA3AF' }} axisLine={false} tickLine={false} />
+        <CartesianGrid strokeDasharray="3 3" stroke="#1E293B" />
+        <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
         <YAxis
           yAxisId="left"
-          tick={{ fontSize: 11, fill: '#9CA3AF' }}
+          tick={{ fontSize: 11, fill: '#94A3B8' }}
           axisLine={false}
           tickLine={false}
           tickFormatter={(v) => `$${v}M`}
@@ -59,7 +59,7 @@ export default function RevenueChart() {
         <YAxis
           yAxisId="right"
           orientation="right"
-          tick={{ fontSize: 11, fill: '#9CA3AF' }}
+          tick={{ fontSize: 11, fill: '#94A3B8' }}
           axisLine={false}
           tickLine={false}
           tickFormatter={(v) => `${v}%`}
@@ -70,6 +70,7 @@ export default function RevenueChart() {
           iconType="circle"
           iconSize={8}
           wrapperStyle={{ fontSize: 11, paddingTop: 8 }}
+          formatter={(value) => <span className="text-xs text-slate-300">{value}</span>}
         />
         <Bar yAxisId="left" dataKey="revenue" name="Revenue" fill="#3B82F6" radius={[4, 4, 0, 0]} opacity={0.9} isAnimationActive={false} />
         <Bar yAxisId="left" dataKey="grossProfit" name="Gross Profit" fill="#10B981" radius={[4, 4, 0, 0]} opacity={0.85} isAnimationActive={false} />

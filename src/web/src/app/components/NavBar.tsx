@@ -33,18 +33,18 @@ export default function NavBar() {
   }
 
   return (
-    <nav className="flex items-center justify-between border-b border-gray-200 bg-white px-6 py-3">
-      <Link href="/" className="text-lg font-semibold text-gray-900">
+    <nav className="flex items-center justify-between border-b border-slate-800 bg-slate-950/80 px-6 py-3 backdrop-blur">
+      <Link href="/" className="text-lg font-semibold text-slate-50">
         UserAuth
       </Link>
       <div className="flex items-center gap-4">
         {loading ? null : user ? (
           <>
-            <Link href="/profile" className="text-gray-700 hover:text-gray-900">
+            <Link href="/profile" className="text-slate-300 hover:text-slate-50">
               Profile
             </Link>
             {user.role === 'admin' && (
-              <Link href="/admin" className="text-gray-700 hover:text-gray-900">
+              <Link href="/admin" className="text-slate-300 hover:text-slate-50">
                 Admin
               </Link>
             )}
@@ -57,7 +57,7 @@ export default function NavBar() {
           </>
         ) : (
           <>
-            <Link href="/login" className="text-gray-700 hover:text-gray-900">
+            <Link href="/login" className="text-slate-300 hover:text-slate-50">
               Login
             </Link>
             <Link href="/register" className="rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700">

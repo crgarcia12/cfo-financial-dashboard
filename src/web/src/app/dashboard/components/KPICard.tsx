@@ -37,24 +37,24 @@ export default function KPICard({
   return (
     <button
       onClick={onClick}
-      className={`text-left w-full rounded-2xl bg-white border transition-all duration-200 p-5 shadow-sm hover:shadow-md focus:outline-none ${
+      className={`w-full rounded-2xl border border-slate-800 bg-slate-900/85 p-5 text-left shadow-lg shadow-black/10 transition-all duration-200 hover:border-slate-700 hover:shadow-xl hover:shadow-black/10 focus:outline-none ${
         active
           ? `border-2 ${borderColorMap[accentColor] ?? accentColor}`
-          : 'border-gray-100 hover:border-gray-200'
+          : ''
       }`}
     >
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">{title}</p>
-          <p className="mt-1 text-2xl font-bold text-gray-900">{value}</p>
-          {subtitle && <p className="mt-0.5 text-sm text-gray-500">{subtitle}</p>}
+          <p className="text-xs font-medium uppercase tracking-wide text-slate-400">{title}</p>
+          <p className="mt-1 text-2xl font-bold text-slate-50">{value}</p>
+          {subtitle && <p className="mt-0.5 text-sm text-slate-400">{subtitle}</p>}
           <div className="mt-2 flex flex-wrap gap-1.5">
             {badge && (
               <span
                 className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold ${
                   badge.positive
-                    ? 'bg-emerald-50 text-emerald-700'
-                    : 'bg-red-50 text-red-700'
+                    ? 'bg-emerald-500/15 text-emerald-300'
+                    : 'bg-red-500/15 text-red-300'
                 }`}
               >
                 {badge.positive ? '▲' : '▼'} {badge.label}
@@ -64,8 +64,8 @@ export default function KPICard({
               <span
                 className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold ${
                   badge2.positive
-                    ? 'bg-blue-50 text-blue-700'
-                    : 'bg-orange-50 text-orange-700'
+                    ? 'bg-blue-500/15 text-blue-300'
+                    : 'bg-orange-500/15 text-orange-300'
                 }`}
               >
                 {badge2.positive ? '↑' : '↓'} {badge2.label}
@@ -73,7 +73,7 @@ export default function KPICard({
             )}
           </div>
         </div>
-        <div className={`rounded-xl p-2.5 ${accentColor} bg-opacity-10`}>
+        <div className={`rounded-xl border border-white/5 p-2.5 ${accentColor} bg-opacity-10`}>
           {icon}
         </div>
       </div>

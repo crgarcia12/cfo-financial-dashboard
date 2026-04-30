@@ -35,22 +35,22 @@ function LoginForm() {
   }
 
   return (
-    <div className="w-full max-w-md space-y-6">
-      <h1 className="text-2xl font-bold text-gray-900">Log in</h1>
+    <div className="w-full max-w-md space-y-6 rounded-2xl border border-slate-800 bg-slate-900/85 p-8 shadow-xl shadow-black/10">
+      <h1 className="text-2xl font-bold text-slate-50">Log in</h1>
 
       {registered && (
-        <p className="rounded bg-green-50 p-3 text-green-800">
+        <p className="rounded-xl border border-emerald-500/20 bg-emerald-500/10 p-3 text-emerald-200">
           Registration successful. Please log in.
         </p>
       )}
 
       {error && (
-        <p className="rounded bg-red-50 p-3 text-red-800">{error}</p>
+        <p className="rounded-xl border border-red-500/20 bg-red-500/10 p-3 text-red-200">{error}</p>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="username" className="block text-sm font-medium text-slate-300">
             Username
           </label>
           <input
@@ -58,12 +58,12 @@ function LoginForm() {
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="mt-1 block w-full rounded border border-gray-300 px-3 py-2 text-gray-900"
+            className="mt-1 block w-full rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-slate-100 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
             required
           />
         </div>
         <div>
-          <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="password" className="block text-sm font-medium text-slate-300">
             Password
           </label>
           <input
@@ -71,7 +71,7 @@ function LoginForm() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="mt-1 block w-full rounded border border-gray-300 px-3 py-2 text-gray-900"
+            className="mt-1 block w-full rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-slate-100 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
             required
           />
         </div>
@@ -83,9 +83,9 @@ function LoginForm() {
         </button>
       </form>
 
-      <p className="text-center text-sm text-gray-600">
+      <p className="text-center text-sm text-slate-400">
         Don&apos;t have an account?{' '}
-        <Link href="/register" className="text-blue-600 hover:underline">
+        <Link href="/register" className="text-blue-400 hover:underline">
           Register
         </Link>
       </p>

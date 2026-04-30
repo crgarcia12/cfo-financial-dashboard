@@ -43,7 +43,7 @@ function fmt(v: number, isExpense?: boolean) {
 function varianceBadge(variance: number) {
   const pos = variance >= 0;
   return (
-    <span className={`inline-block px-1.5 py-0.5 rounded text-xs font-semibold ${pos ? 'bg-emerald-50 text-emerald-700' : 'bg-red-50 text-red-700'}`}>
+    <span className={`inline-block rounded px-1.5 py-0.5 text-xs font-semibold ${pos ? 'bg-emerald-500/15 text-emerald-300' : 'bg-red-500/15 text-red-300'}`}>
       {pos ? '+' : ''}{variance.toFixed(1)}
     </span>
   );
@@ -51,7 +51,7 @@ function varianceBadge(variance: number) {
 
 function marginBadge(actual: number, total: number) {
   const pct = ((actual / total) * 100).toFixed(1);
-  return <span className="text-xs text-gray-400">{pct}%</span>;
+  return <span className="text-xs text-slate-400">{pct}%</span>;
 }
 
 export default function PLTable() {
@@ -60,13 +60,13 @@ export default function PLTable() {
     <div className="overflow-x-auto">
       <table className="w-full text-sm">
         <thead>
-          <tr className="border-b border-gray-100">
-            <th className="text-left pb-2 text-xs font-semibold text-gray-500 uppercase tracking-wide w-48">Line Item</th>
-            <th className="text-right pb-2 text-xs font-semibold text-gray-500 uppercase tracking-wide">Actual</th>
-            <th className="text-right pb-2 text-xs font-semibold text-gray-500 uppercase tracking-wide">Budget</th>
-            <th className="text-right pb-2 text-xs font-semibold text-gray-500 uppercase tracking-wide">Variance</th>
-            <th className="text-right pb-2 text-xs font-semibold text-gray-500 uppercase tracking-wide">Prior Yr</th>
-            <th className="text-right pb-2 text-xs font-semibold text-gray-500 uppercase tracking-wide">Margin</th>
+          <tr className="border-b border-slate-800">
+            <th className="w-48 pb-2 text-left text-xs font-semibold uppercase tracking-wide text-slate-400">Line Item</th>
+            <th className="pb-2 text-right text-xs font-semibold uppercase tracking-wide text-slate-400">Actual</th>
+            <th className="pb-2 text-right text-xs font-semibold uppercase tracking-wide text-slate-400">Budget</th>
+            <th className="pb-2 text-right text-xs font-semibold uppercase tracking-wide text-slate-400">Variance</th>
+            <th className="pb-2 text-right text-xs font-semibold uppercase tracking-wide text-slate-400">Prior Yr</th>
+            <th className="pb-2 text-right text-xs font-semibold uppercase tracking-wide text-slate-400">Margin</th>
           </tr>
         </thead>
         <tbody>
@@ -74,28 +74,28 @@ export default function PLTable() {
             const d = annualPL[row.key];
             const variance = d.actual - d.budget;
             const highlight = row.highlight === 'green'
-              ? 'bg-emerald-50/50'
+              ? 'bg-emerald-500/8'
               : row.highlight === 'blue'
-              ? 'bg-blue-50/50'
+              ? 'bg-blue-500/8'
               : row.highlight === 'purple'
-              ? 'bg-purple-50/50'
+              ? 'bg-purple-500/8'
               : '';
             return (
               <tr
                 key={row.key}
-                className={`border-b border-gray-50 ${row.separator ? 'border-t-2 border-t-gray-200' : ''} ${highlight}`}
+                className={`border-b border-slate-800/80 ${row.separator ? 'border-t-2 border-t-slate-700' : ''} ${highlight}`}
               >
-                <td className={`py-2 ${row.indent ? 'pl-4' : ''} ${row.bold ? 'font-semibold text-gray-900' : 'text-gray-600'}`}>
+                <td className={`py-2 ${row.indent ? 'pl-4' : ''} ${row.bold ? 'font-semibold text-slate-100' : 'text-slate-300'}`}>
                   {row.label}
                 </td>
-                <td className={`py-2 text-right font-mono ${row.bold ? 'font-semibold text-gray-900' : 'text-gray-700'}`}>
+                <td className={`py-2 text-right font-mono ${row.bold ? 'font-semibold text-slate-100' : 'text-slate-200'}`}>
                   {fmt(d.actual, row.isExpense)}
                 </td>
-                <td className="py-2 text-right font-mono text-gray-500">{fmt(d.budget, row.isExpense)}</td>
+                <td className="py-2 text-right font-mono text-slate-400">{fmt(d.budget, row.isExpense)}</td>
                 <td className="py-2 text-right">{varianceBadge(variance)}</td>
-                <td className="py-2 text-right font-mono text-gray-400">{fmt((d as PLEntry).priorYear, row.isExpense)}</td>
+                <td className="py-2 text-right font-mono text-slate-500">{fmt((d as PLEntry).priorYear, row.isExpense)}</td>
                 <td className="py-2 text-right">
-                  {(row.highlight || row.bold) ? marginBadge(Math.abs(d.actual), revenue) : <span className="text-gray-300">—</span>}
+                  {(row.highlight || row.bold) ? marginBadge(Math.abs(d.actual), revenue) : <span className="text-slate-600">—</span>}
                 </td>
               </tr>
             );

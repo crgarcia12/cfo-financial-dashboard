@@ -8,11 +8,11 @@ interface SectionCardProps {
 
 export default function SectionCard({ title, subtitle, children, className = '', action }: SectionCardProps) {
   return (
-    <div className={`rounded-2xl bg-white border border-gray-100 shadow-sm overflow-hidden ${className}`}>
-      <div className="flex items-center justify-between px-6 pt-5 pb-3 border-b border-gray-50">
+    <div className={`overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/85 shadow-xl shadow-black/10 ${className}`}>
+      <div className="flex items-center justify-between border-b border-slate-800 px-6 pt-5 pb-3">
         <div>
-          <h3 className="text-sm font-semibold text-gray-900">{title}</h3>
-          {subtitle && <p className="text-xs text-gray-400 mt-0.5">{subtitle}</p>}
+          <h3 className="text-sm font-semibold text-slate-100">{title}</h3>
+          {subtitle && <p className="mt-0.5 text-xs text-slate-400">{subtitle}</p>}
         </div>
         {action && <div>{action}</div>}
       </div>

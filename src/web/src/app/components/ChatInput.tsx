@@ -41,7 +41,7 @@ export default function ChatInput({ onSend, disabled }: ChatInputProps) {
   };
 
   return (
-    <div className="flex items-end gap-2 p-4 border-t border-gray-200 bg-white">
+    <div className="flex items-end gap-2 border-t border-slate-800 bg-slate-950/80 p-4">
       <textarea
         ref={textareaRef}
         role="textbox"
@@ -53,7 +53,7 @@ export default function ChatInput({ onSend, disabled }: ChatInputProps) {
         disabled={disabled}
         placeholder="Type a message..."
         rows={1}
-        className="flex-1 resize-none rounded-xl border border-gray-300 px-4 py-2.5 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+        className="flex-1 resize-none rounded-xl border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:cursor-not-allowed disabled:bg-slate-800 disabled:text-slate-500"
       />
       <button
         type="button"
@@ -63,7 +63,7 @@ export default function ChatInput({ onSend, disabled }: ChatInputProps) {
         aria-disabled={disabled || isEmpty}
         className={`flex h-10 w-10 items-center justify-center rounded-full transition-colors ${
           disabled || isEmpty
-            ? 'bg-gray-300 cursor-not-allowed text-white'
+            ? 'cursor-not-allowed bg-slate-700 text-slate-400'
             : 'bg-blue-600 text-white hover:bg-blue-700'
         }`}
       >

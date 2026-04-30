@@ -55,7 +55,7 @@ export default function AdminPage() {
   if (loading) {
     return (
       <main className="flex min-h-[80vh] items-center justify-center">
-        <p className="text-gray-600">Loading users...</p>
+        <p className="text-slate-300">Loading users...</p>
       </main>
     );
   }
@@ -64,32 +64,34 @@ export default function AdminPage() {
     return (
       <main className="flex min-h-[80vh] flex-col items-center justify-center gap-2">
         <h1 className="text-2xl font-bold text-red-600">Access Denied</h1>
-        <p className="text-gray-600">You do not have permission to view this page.</p>
+        <p className="text-slate-400">You do not have permission to view this page.</p>
       </main>
     );
   }
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-8">
-      <h1 className="mb-6 text-2xl font-bold text-gray-900">Users</h1>
-      <table className="w-full border-collapse text-left">
-        <thead>
-          <tr className="border-b border-gray-200">
-            <th className="px-4 py-3 text-sm font-medium text-gray-600">Username</th>
-            <th className="px-4 py-3 text-sm font-medium text-gray-600">Role</th>
-            <th className="px-4 py-3 text-sm font-medium text-gray-600">Member Since</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((u) => (
-            <tr key={u.username} className="border-b border-gray-100">
-              <td className="px-4 py-3 text-gray-900">{u.username}</td>
-              <td className="px-4 py-3 text-gray-700">{u.role}</td>
-              <td className="px-4 py-3 text-gray-700">{formatDate(u.createdAt)}</td>
+      <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/85 p-6 shadow-xl shadow-black/10">
+        <h1 className="mb-6 text-2xl font-bold text-slate-50">Users</h1>
+        <table className="w-full border-collapse text-left">
+          <thead>
+            <tr className="border-b border-slate-800">
+              <th className="px-4 py-3 text-sm font-medium text-slate-400">Username</th>
+              <th className="px-4 py-3 text-sm font-medium text-slate-400">Role</th>
+              <th className="px-4 py-3 text-sm font-medium text-slate-400">Member Since</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {users.map((u) => (
+              <tr key={u.username} className="border-b border-slate-800/80">
+                <td className="px-4 py-3 text-slate-100">{u.username}</td>
+                <td className="px-4 py-3 text-slate-300">{u.role}</td>
+                <td className="px-4 py-3 text-slate-300">{formatDate(u.createdAt)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </main>
   );
 }

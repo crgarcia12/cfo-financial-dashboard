@@ -14,8 +14,8 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
   const v = payload[0].value;
   const pct = payload[0].payload.pct;
   return (
-    <div className="rounded-xl border border-gray-100 bg-white shadow-lg px-4 py-3 text-xs">
-      <p className="font-semibold text-gray-700">{label}</p>
+    <div className="rounded-xl border border-slate-700 bg-slate-950/95 px-4 py-3 text-xs shadow-xl shadow-black/20">
+      <p className="font-semibold text-slate-100">{label}</p>
       <p className={`font-bold ${v >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
         Variance: {v >= 0 ? '+' : ''}${v.toFixed(1)}M ({pct.toFixed(1)}%)
       </p>
@@ -32,10 +32,10 @@ export default function BudgetVarianceChart() {
           layout="vertical"
           margin={{ top: 4, right: 60, left: 100, bottom: 4 }}
         >
-          <CartesianGrid strokeDasharray="3 3" stroke="#F3F4F6" horizontal={false} />
+          <CartesianGrid strokeDasharray="3 3" stroke="#1E293B" horizontal={false} />
           <XAxis
             type="number"
-            tick={{ fontSize: 10, fill: '#9CA3AF' }}
+            tick={{ fontSize: 10, fill: '#94A3B8' }}
             axisLine={false}
             tickLine={false}
             tickFormatter={(v) => `${v >= 0 ? '+' : ''}$${v}M`}
@@ -44,13 +44,13 @@ export default function BudgetVarianceChart() {
           <YAxis
             type="category"
             dataKey="category"
-            tick={{ fontSize: 11, fill: '#6B7280' }}
+            tick={{ fontSize: 11, fill: '#CBD5E1' }}
             axisLine={false}
             tickLine={false}
             width={95}
           />
           <Tooltip content={<CustomTooltip />} />
-          <ReferenceLine x={0} stroke="#D1D5DB" strokeWidth={1.5} />
+          <ReferenceLine x={0} stroke="#334155" strokeWidth={1.5} />
           <Bar dataKey="variance" radius={[0, 4, 4, 0]} maxBarSize={18} isAnimationActive={false}>
             {budgetVsActual.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={entry.variance >= 0 ? '#10B981' : '#EF4444'} />
@@ -62,12 +62,12 @@ export default function BudgetVarianceChart() {
                 const n = typeof v === 'number' ? v : 0;
                 return `${n >= 0 ? '+' : ''}$${n.toFixed(1)}M`;
               }}
-              style={{ fontSize: 10, fill: '#6B7280' }}
+              style={{ fontSize: 10, fill: '#CBD5E1' }}
             />
           </Bar>
         </BarChart>
       </ResponsiveContainer>
-      <p className="text-xs text-gray-400 text-center">Positive variance = favorable (above budget revenue / below budget expense)</p>
+      <p className="text-center text-xs text-slate-400">Positive variance = favorable (above budget revenue / below budget expense)</p>
     </div>
   );
 }

@@ -12,9 +12,9 @@ function CustomTooltip({ active, payload }: CustomTooltipProps) {
   if (!active || !payload?.length) return null;
   const p = payload[0];
   return (
-    <div className="rounded-xl border border-gray-100 bg-white shadow-lg px-4 py-3 text-xs">
-      <p className="font-semibold text-gray-700">{p.name}</p>
-      <p className="text-gray-600">${p.value}M &mdash; {p.payload.pct}%</p>
+    <div className="rounded-xl border border-slate-700 bg-slate-950/95 px-4 py-3 text-xs shadow-xl shadow-black/20">
+      <p className="font-semibold text-slate-100">{p.name}</p>
+      <p className="text-slate-300">${p.value}M &mdash; {p.payload.pct}%</p>
     </div>
   );
 }
@@ -46,7 +46,7 @@ export default function RevenuePieChart({ type }: RevenuePieChartProps) {
         <Legend
           iconType="circle"
           iconSize={8}
-          formatter={(value) => <span className="text-xs text-gray-600">{value}</span>}
+          formatter={(value) => <span className="text-xs text-slate-300">{value}</span>}
         />
       </PieChart>
     </ResponsiveContainer>
